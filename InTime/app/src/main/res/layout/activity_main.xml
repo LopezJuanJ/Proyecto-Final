@@ -1,38 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#000000">
+    android:background="@color/black">
 
+    <!-- Imagen fuera del ScrollView -->
     <ImageView
+        android:id="@+id/intimelogo"
         android:layout_width="300dp"
         android:layout_height="167dp"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:scaleType="centerCrop"
         android:src="@drawable/intimelogo" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Crear Cuenta"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="14dp"
-        android:layout_marginLeft="57dp"
-        android:layout_marginRight="58dp"
-        android:textColor="#FFFFFF"
-        android:fontFamily="@font/urbanistbold"/>
+
+    <ScrollView
+        android:layout_below="@+id/intimelogo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#000000">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crear Cuenta"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="57dp"
+                android:layout_marginRight="58dp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/urbanistbold"/>
 
     <EditText
         android:layout_gravity="center_horizontal"
@@ -148,12 +155,12 @@
         android:orientation="horizontal">
 
         <CheckBox
-            app:buttonTint="@color/black"
             android:id="@+id/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
             app:useMaterialThemeColors="false" />
 
         <TextView
@@ -176,20 +183,21 @@
 
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCrearCuenta"
         android:layout_width="243dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/custom_button_background"
+        android:backgroundTint="#59CE73"
         android:fontFamily="@font/urbanistbold"
+        android:onClick="CrearCuentaClick"
         android:text="Crear cuenta"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="22dp"
-        android:onClick="CrearCuentaClick"/>
+        android:textSize="22dp" />
 
 
-</LinearLayout>
 
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
