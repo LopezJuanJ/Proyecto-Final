@@ -1,7 +1,6 @@
 package com.example.intime;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class MenuCliActivity extends AppCompatActivity {
