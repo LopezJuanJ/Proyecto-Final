@@ -47,7 +47,8 @@
         android:fontFamily="@font/urbanistbold"
         android:text="Reservar"
         android:textColor="@color/white"
-        android:textSize="22dp" />
+        android:textSize="22dp"
+         />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/Chat"

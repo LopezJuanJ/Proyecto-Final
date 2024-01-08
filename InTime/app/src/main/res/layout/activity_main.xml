@@ -1,54 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:orientation="vertical"
+    android:background="#000000">
 
     <ImageView
-        android:id="@+id/intimelogo"
-        android:layout_width="300dp"
-        android:layout_height="167dp"
+        android:id="@+id/intimelogoLogin"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="312dp"
+        android:layout_height="183dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="85dp"
         android:scaleType="centerCrop"
         android:src="@drawable/intimelogo" />
-
-    <ScrollView
-        android:layout_below="@+id/intimelogo"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fillViewport="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#000000">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Crear Cuenta"
-                android:textSize="40dp"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="14dp"
-                android:layout_marginLeft="57dp"
-                android:layout_marginRight="58dp"
-                android:textColor="#FFFFFF"
-                android:fontFamily="@font/urbanistbold"/>
+        android:text="Inicio"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="65dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/urbanistbold"/>
 
     <EditText
         android:layout_gravity="center_horizontal"
-        android:id="@+id/editTextNombre"
+        android:id="@+id/editTextNombreUsu"
         android:layout_width="266dp"
         android:layout_height="39dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="21dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Nombre"
+        android:hint="Nombre de Usuario"
         android:fontFamily="@font/montserratlight"
         android:textSize="20dp"
         android:inputType="text"
@@ -59,46 +43,10 @@
         />
     <EditText
         android:layout_gravity="center_horizontal"
-        android:id="@+id/editTextApellidos"
-        android:textSize="20dp"
+        android:id="@+id/editTextPass"
         android:layout_width="266dp"
         android:layout_height="39dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Apellidos"
-        android:fontFamily="@font/montserratlight"
-        android:inputType="text"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:textColorHint="#000"
-        android:background="@drawable/custom_edittext_background"
-        />
-    <EditText
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/editTextCorreoE"
-        android:layout_width="266dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Correo Electrónico"
-        android:fontFamily="@font/montserratlight"
-        android:textSize="20dp"
-        android:inputType="text"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:textColorHint="#000"
-        android:background="@drawable/custom_edittext_background"
-        />
-    <EditText
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/editTextContrasena"
-        android:layout_width="266dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="48dp"
         android:hint="Contraseña"
         android:fontFamily="@font/montserratlight"
         android:textSize="20dp"
@@ -108,65 +56,44 @@
         android:textColorHint="#000"
         android:background="@drawable/custom_edittext_background"
         />
-    <EditText
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/editTextRepContrasena"
-        android:layout_width="266dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Repite la Contraseña"
-        android:fontFamily="@font/montserratlight"
-        android:textSize="20dp"
-        android:inputType="textPassword"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:textColorHint="#000"
-        android:background="@drawable/custom_edittext_background"
-        />
-    <EditText
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/editTextCodGym"
-        android:layout_width="266dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Cod Gym"
-        android:fontFamily="@font/montserratlight"
-        android:textSize="20dp"
-        android:inputType="text"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:textColorHint="#000"
-        android:background="@drawable/custom_edittext_background"
-        android:layout_marginBottom="0dp"
-        />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCrearCuenta"
+        android:layout_width="243dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="46dp"
+        android:backgroundTint="#59CE73"
+        android:fontFamily="@font/urbanistbold"
+        android:onClick="ComprobarCuentaClick"
+        android:text="Comprobar"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="22dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Olvidaste la contraseña?"
+        android:textSize="13dp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/urbanistbold"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:outlineAmbientShadowColor="@color/white"
-            android:outlineSpotShadowColor="@color/white"
-            app:useMaterialThemeColors="false" />
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Acepto los "
+            android:text="No tienes cuenta. "
             android:fontFamily="@font/urbanistbold"
             android:textColor="@color/white"
             android:textSize="13dp" />
@@ -176,27 +103,9 @@
             android:fontFamily="@font/urbanistbold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Terminos y Condiciones "
+            android:text="Créala"
             android:textColor="#59CE73"
             android:textSize="13dp" />
-
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCrearCuenta"
-        android:layout_width="243dp"
-        android:layout_height="45dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="#59CE73"
-        android:fontFamily="@font/urbanistbold"
-        android:onClick="CrearCuentaClick"
-        android:text="Crear cuenta"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="22dp" />
-
-
-
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+</LinearLayout>
