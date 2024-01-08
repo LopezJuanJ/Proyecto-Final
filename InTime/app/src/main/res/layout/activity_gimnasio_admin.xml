@@ -1,9 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GimnasioAdminActivity">
+    android:orientation="vertical"
+    android:background="#000000">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#000000">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/arrowleft" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="14dp"
+            android:layout_toEndOf="@id/btnBack"
+            android:layout_toRightOf="@id/btnBack"
+            android:fontFamily="@font/urbanistbold"
+            android:text="Gimnasio"
+            android:textColor="#FFFFFF"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+
+
+    <ImageView
+        android:layout_marginTop="17dp"
+        android:id="@+id/profileImageView"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        />
+
+
+    <!-- Cambiar Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCrearCuenta"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#59CE73"
+        android:fontFamily="@font/urbanistbold"
+        android:onClick="ComprobarCuentaClick"
+        android:text="Editar"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="22dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="47dp"
+        android:fontFamily="@font/urbanistbold"
+        android:layout_marginTop="10dp"
+        />
+
+    <!-- Campo de texto para el nombre -->
+    <EditText
+
+        android:id="@+id/tbgimnombre"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="47dp"
+        android:background="@drawable/custom_edittext_background"
+        android:fontFamily="@font/montserratlight"
+        android:inputType="text"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColorHint="#000"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Direccion"
+        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="47dp"
+        android:fontFamily="@font/urbanistbold"
+        android:layout_marginTop="10dp"
+        />
+
+    <!-- Campo de texto para el nombre -->
+    <EditText
+        android:id="@+id/etgymDireccion"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/montserratlight"
+        android:textSize="20dp"
+        android:inputType="text"
+        android:layout_marginLeft="47dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColorHint="#000"
+        android:background="@drawable/custom_edittext_background"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono"
+        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="47dp"
+        android:fontFamily="@font/urbanistbold"
+        android:layout_marginTop="10dp"
+        />
+
+    <!-- Campo de texto para el nombre -->
+    <EditText
+        android:id="@+id/etugymTelefono"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/montserratlight"
+        android:textSize="20dp"
+        android:inputType="text"
+        android:layout_marginLeft="47dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColorHint="#000"
+        android:background="@drawable/custom_edittext_background"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo Electronico"
+        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="47dp"
+        android:fontFamily="@font/urbanistbold"
+        android:layout_marginTop="10dp"
+        />
+
+    <!-- Campo de texto para el nombre -->
+    <EditText
+        android:id="@+id/tbgymelectronico"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/montserratlight"
+        android:textSize="20dp"
+        android:inputType="text"
+        android:layout_marginLeft="47dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColorHint="#000"
+        android:background="@drawable/custom_edittext_background"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Código Gym"
+        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="47dp"
+        android:fontFamily="@font/urbanistbold"
+        android:layout_marginTop="10dp"
+        />
+
+    <!-- Campo de texto para el nombre -->
+    <EditText
+        android:id="@+id/tbgymcod"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/montserratlight"
+        android:textSize="20dp"
+        android:inputType="textPassword"
+        android:layout_marginLeft="47dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColorHint="#000"
+        android:background="@drawable/custom_edittext_background"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnguardarPerfil"
+        android:layout_width="243dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="46dp"
+        android:backgroundTint="#59CE73"
+        android:fontFamily="@font/urbanistbold"
+        android:onClick="ComprobarCuentaClick"
+        android:text="Guardar"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="22dp" />
+
+</LinearLayout>
