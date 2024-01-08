@@ -5,16 +5,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#000000">
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Perfil"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp"
-        android:textColor="#FFFFFF"
-        android:fontFamily="@font/urbanistbold"/>
+        android:background="#000000">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="37dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="-1dp"
+            android:layout_marginLeft="-1dp"
+            android:src="@drawable/arrowleft" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="109dp"
+            android:layout_marginLeft="109dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/btnBack"
+            android:layout_toRightOf="@id/btnBack"
+            android:fontFamily="@font/urbanistbold"
+            android:text="Perfil"
+            android:textColor="#FFFFFF"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+
 
     <ImageView
         android:layout_marginTop="17dp"
