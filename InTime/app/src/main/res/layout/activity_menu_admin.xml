@@ -47,7 +47,11 @@
             android:text="Administrar"
             android:textColor="@color/white"
             android:textSize="19dp"
-            app:cornerRadius="10dp" />
+            app:cornerRadius="10dp"
+            app:icon="@drawable/build"
+            app:iconSize="70dp"
+            app:iconGravity="top"
+            android:paddingTop="20dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Chat"
@@ -60,34 +64,12 @@
             app:cornerRadius="10dp"
             android:text="Chat"
             android:textColor="@color/white"
-            android:textSize="22dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Perfil"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginRight="14.5dp"
-            android:layout_marginBottom="27dp"
-            android:backgroundTint="#4c4c4c"
-            android:fontFamily="@font/urbanistbold"
-            app:cornerRadius="10dp"
-            android:text="Perfil"
-            android:textColor="@color/white"
-            android:textSize="22dp" />
-
-        <!-- Buttons in the second column -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Gimnasio"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="14.5dp"
-            android:layout_marginBottom="27dp"
-            android:backgroundTint="#4c4c4c"
-            android:fontFamily="@font/urbanistbold"
-            app:cornerRadius="10dp"
-            android:text="Gimanasio"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="22dp"
+            app:icon="@drawable/chat"
+            app:iconSize="70dp"
+            app:iconGravity="top"
+            android:paddingTop="20dp"
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Usuarios"
@@ -101,7 +83,47 @@
             android:text="Usuarios"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="22dp" />
+            android:textSize="22dp"
+            app:icon="@drawable/users"
+            app:iconSize="70dp"
+            app:iconGravity="top"
+            android:paddingTop="20dp"        />
+
+        <!-- Buttons in the second column -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Gimnasio"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="14.5dp"
+            android:layout_marginBottom="27dp"
+            android:backgroundTint="#4c4c4c"
+            android:fontFamily="@font/urbanistbold"
+            app:cornerRadius="10dp"
+            android:text="Gimanasio"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:icon="@drawable/gimnasio"
+            app:iconSize="70dp"
+            app:iconGravity="top"
+            android:paddingTop="20dp"        />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Perfil"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginBottom="27dp"
+            android:backgroundTint="#4c4c4c"
+            android:fontFamily="@font/urbanistbold"
+            app:cornerRadius="10dp"
+            android:text="Perfil"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            app:icon="@drawable/config"
+            app:iconSize="70dp"
+            app:iconGravity="top"
+            android:paddingTop="20dp"        />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Salir"
@@ -115,7 +137,10 @@
             android:text="Salir"
             android:textColor="@color/white"
             android:textSize="22dp"
-            />
+            app:icon="@drawable/reserva"
+            app:iconSize="70dp"
+            app:iconGravity="top"
+            android:paddingTop="20dp"        />
 
     </GridLayout>
 </LinearLayout>

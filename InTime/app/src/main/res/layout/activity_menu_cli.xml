@@ -48,6 +48,10 @@
         android:text="Reservar"
         android:textColor="@color/white"
         android:textSize="22dp"
+        app:icon="@drawable/fitreserva"
+        app:iconSize="70dp"
+        app:iconGravity="top"
+        android:paddingTop="20dp"
          />
 
     <com.google.android.material.button.MaterialButton
@@ -61,10 +65,15 @@
         app:cornerRadius="10dp"
         android:text="Chat"
         android:textColor="@color/white"
-        android:textSize="22dp" />
+        android:textSize="22dp"
+        app:icon="@drawable/chat"
+        app:iconSize="70dp"
+        app:iconGravity="top"
+        android:paddingTop="20dp"
+        />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/Perfil"
+        android:id="@+id/MiCu"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginRight="14.5dp"
@@ -72,9 +81,13 @@
         android:backgroundTint="#4c4c4c"
         android:fontFamily="@font/urbanistbold"
         app:cornerRadius="10dp"
-        android:text="Perfil"
+        android:text="Mi Cuerpo"
         android:textColor="@color/white"
-        android:textSize="22dp" />
+        android:textSize="20dp"
+        app:icon="@drawable/perfil"
+        app:iconSize="70dp"
+        app:iconGravity="top"
+        android:paddingTop="20dp"        />
 
     <!-- Buttons in the second column -->
     <com.google.android.material.button.MaterialButton
@@ -88,10 +101,14 @@
         app:cornerRadius="10dp"
         android:text="Gimanasio"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        app:icon="@drawable/gimnasio"
+        app:iconSize="70dp"
+        app:iconGravity="top"
+        android:paddingTop="20dp"        />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/MiCuerpo"
+        android:id="@+id/Perfil"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginRight="14.5dp"
@@ -99,10 +116,14 @@
         android:backgroundTint="#4c4c4c"
         android:fontFamily="@font/urbanistbold"
         app:cornerRadius="10dp"
-        android:text="Mi Cuerpo"
+        android:text="Perfil"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="22dp"
+        app:icon="@drawable/config"
+        app:iconSize="70dp"
+        app:iconGravity="top"
+        android:paddingTop="20dp"        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/Salir"
@@ -116,7 +137,10 @@
         android:text="Salir"
         android:textColor="@color/white"
         android:textSize="22dp"
-           />
+        app:icon="@drawable/reserva"
+        app:iconSize="70dp"
+        app:iconGravity="top"
+        android:paddingTop="20dp"        />
 
   </GridLayout>
 </LinearLayout>
