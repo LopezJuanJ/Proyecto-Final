@@ -79,7 +79,7 @@
                 android:backgroundTint="#59CE73"
                 android:fontFamily="@font/urbanistbold"
                 android:gravity="center"
-                android:onClick="ComprobarCuentaClick"
+                android:onClick="checkLogin"
                 android:text="Comprobar"
                 android:textAlignment="center"
                 android:textColor="@color/black"
