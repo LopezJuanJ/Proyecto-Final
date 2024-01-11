@@ -17,8 +17,11 @@
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="24dp"
             android:layout_marginLeft="45dp"
+            android:layout_marginTop="24dp"
+            android:clickable="false"
+            android:clipToOutline="false"
+            android:onClick="VolverAlMenu"
             android:src="@drawable/arrowleft" />
 
         <TextView
@@ -131,15 +134,14 @@
         android:id="@+id/etusuCodGym"
         android:layout_width="300dp"
         android:layout_height="39dp"
-        android:fontFamily="@font/montserratlight"
-        android:textSize="20dp"
-        android:inputType="text"
         android:layout_marginLeft="47dp"
+        android:background="@drawable/custom_edittextnc_background"
+        android:fontFamily="@font/montserratlight"
+        android:inputType="text"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:textColorHint="#000"
-        android:background="@drawable/custom_edittextnc_background"
-        />
+        android:textSize="20dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -190,6 +192,7 @@
         android:textColorHint="#000"
         android:background="@drawable/custom_edittext_background"
         />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnguardarPerfil"
         android:layout_width="243dp"
@@ -198,10 +201,10 @@
         android:layout_marginTop="46dp"
         android:backgroundTint="#59CE73"
         android:fontFamily="@font/urbanistbold"
-        android:onClick="ComprobarCuentaClick"
+        android:gravity="center"
+        android:onClick="actualizarDatos"
         android:text="Guardar"
         android:textAlignment="center"
-        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="22dp" />
 

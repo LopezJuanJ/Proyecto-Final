@@ -4,8 +4,10 @@ public class Sesion {
     private static Sesion instanciaUnica;
 
     private String NombreUsuario;
+    private String apellidos;  // Nuevo atributo
     private String codGym;
     private int admin;
+    private String Nombre;  // Nuevo atributo
 
     // Constructor privado para evitar la creación de instancias directas
     private Sesion() {
@@ -28,6 +30,15 @@ public class Sesion {
         this.NombreUsuario = nombreUsuario;
     }
 
+    // Getter y Setter para apellidos
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
     // Getter y Setter para codGym
     public String getCodGym() {
         return codGym;
@@ -45,5 +56,13 @@ public class Sesion {
     public void setAdmin(int admin) {
         this.admin = admin;
     }
-}
 
+    // Getter y Setter para correoElectronico
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+}

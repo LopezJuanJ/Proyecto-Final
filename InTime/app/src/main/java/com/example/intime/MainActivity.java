@@ -70,12 +70,19 @@ public class MainActivity extends AppCompatActivity {
                         int isAdmin = userSnapshot.child("admin").getValue(Integer.class);
                         // Obtener el valor del campo "codGym" para el usuario encontrado
                         String codGym = userSnapshot.child("codGym").getValue(String.class);
+                        String Nombre = userSnapshot.child("nombre").getValue(String.class);
+                        String correoElect = userSnapshot.child("correoElectronico").getValue(String.class);
+                        String apellidos = userSnapshot.child("apellidos").getValue(String.class);
+
 
                         // Verificar el valor del campo "admin" y redirigir a la actividad correspondiente
                         if (isAdmin == 0) {
                             Sesion.getInstancia().setAdmin(isAdmin);
                             Sesion.getInstancia().setNombreUsuario(emailUser);
                             Sesion.getInstancia().setCodGym(codGym);
+                            Sesion.getInstancia().setNombre(Nombre);
+                            Sesion.getInstancia().setNombreUsuario(correoElect);
+                            Sesion.getInstancia().setApellidos(apellidos);
 
                             // Usuario no es administrador, redirigir a MenuCliActivity
                             Intent intent = new Intent(MainActivity.this, MenuCliActivity.class);
@@ -85,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
                             Sesion.getInstancia().setAdmin(isAdmin);
                             Sesion.getInstancia().setNombreUsuario(emailUser);
                             Sesion.getInstancia().setCodGym(codGym);
+                            Sesion.getInstancia().setNombre(Nombre);
+                            Sesion.getInstancia().setNombreUsuario(correoElect);
+                            Sesion.getInstancia().setApellidos(apellidos);
                             // Usuario es administrador, redirigir a MenuAdminActivity
                             Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class);
                             startActivity(intent);
