@@ -1,5 +1,6 @@
 package com.example.intime;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -10,8 +11,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     EditText nombre, apellidos, cElectronico, pass,repPass, codGym;
@@ -48,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
 
             }else{
+
                 // Crear un objeto Usuario con la información ingresada y asignar el valor de admin
                 Usuario nuevoUsuario = new Usuario(nombreUsuario, apellidosUsuario, correoUsuario, contrasena, codGymUsuario, admin);
 
