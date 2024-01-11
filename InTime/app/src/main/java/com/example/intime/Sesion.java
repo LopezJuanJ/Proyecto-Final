@@ -5,7 +5,7 @@ public class Sesion {
 
     private String NombreUsuario;
     private String codGym;
-    private boolean admin;
+    private int admin;
 
     // Constructor privado para evitar la creación de instancias directas
     private Sesion() {
@@ -38,11 +38,11 @@ public class Sesion {
     }
 
     // Getter y Setter para admin
-    public boolean isAdmin() {
+    public int getAdmin() {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(int admin) {
         this.admin = admin;
     }
 }

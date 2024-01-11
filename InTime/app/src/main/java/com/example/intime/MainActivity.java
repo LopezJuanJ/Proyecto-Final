@@ -68,14 +68,23 @@ public class MainActivity extends AppCompatActivity {
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                         // Obtener el valor del campo "admin" para el usuario encontrado
                         int isAdmin = userSnapshot.child("admin").getValue(Integer.class);
+                        // Obtener el valor del campo "codGym" para el usuario encontrado
+                        String codGym = userSnapshot.child("codGym").getValue(String.class);
 
                         // Verificar el valor del campo "admin" y redirigir a la actividad correspondiente
                         if (isAdmin == 0) {
+                            Sesion.getInstancia().setAdmin(isAdmin);
+                            Sesion.getInstancia().setNombreUsuario(emailUser);
+                            Sesion.getInstancia().setCodGym(codGym);
+
                             // Usuario no es administrador, redirigir a MenuCliActivity
                             Intent intent = new Intent(MainActivity.this, MenuCliActivity.class);
                             startActivity(intent);
                             finish(); // Finalizar la actividad actual para evitar que el usuario regrese al inicio de sesión
                         } else if (isAdmin == 1) {
+                            Sesion.getInstancia().setAdmin(isAdmin);
+                            Sesion.getInstancia().setNombreUsuario(emailUser);
+                            Sesion.getInstancia().setCodGym(codGym);
                             // Usuario es administrador, redirigir a MenuAdminActivity
                             Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class);
                             startActivity(intent);
