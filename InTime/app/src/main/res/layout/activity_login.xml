@@ -193,7 +193,8 @@
                 android:text="Crear cuenta"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                />
 
 
 
