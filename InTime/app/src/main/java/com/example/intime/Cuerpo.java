@@ -48,5 +48,6 @@ public class Cuerpo {
     public void setImc(double imc) {
         this.imc = imc;
     }
+
 }
 

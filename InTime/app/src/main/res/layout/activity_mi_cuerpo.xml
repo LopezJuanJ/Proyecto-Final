@@ -52,20 +52,6 @@
 
 
     <!-- Cambiar Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCrearCuenta"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#59CE73"
-        android:fontFamily="@font/urbanistbold"
-        android:onClick="ComprobarCuentaClick"
-        android:text="Editar"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="22dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,7 +60,7 @@
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
         android:fontFamily="@font/urbanistbold"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         />
 
     <!-- Campo de texto para el nombre -->
@@ -142,35 +128,6 @@
         android:textColorHint="#000"
         android:background="@drawable/custom_edittextnc_background"
         />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:layout_marginTop="23dp">
-
-        <CheckBox
-            android:id="@+id/checkBoxPrimeraMedi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:outlineAmbientShadowColor="@color/white"
-            android:outlineSpotShadowColor="@color/white"
-            />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Es mi primera medición "
-            android:fontFamily="@font/urbanistbold"
-            android:textColor="@color/white"
-            android:textSize="13dp" />
-
-
-    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnguardarPerfil"

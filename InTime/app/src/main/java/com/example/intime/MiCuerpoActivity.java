@@ -1,117 +1,138 @@
 package com.example.intime;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MiCuerpoActivity extends AppCompatActivity {
-    EditText etKG, etAltura, cIMC;
-    Button btnGuardar;
-    CheckBox cbMedicion;
 
-    DatabaseReference databaseReference;
+    EditText etKG, etAltura, cIMC;
+
+    DatabaseHelper dbHelper;
+    SQLiteDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mi_cuerpo);
 
-        etKG=findViewById(R.id.tbumicukg);
-        etAltura=findViewById(R.id.etmicAlt);
-        cIMC=findViewById(R.id.etIM);
-        btnGuardar= findViewById(R.id.btnguardarPerfil);
-        cbMedicion=findViewById(R.id.checkBoxPrimeraMedi);
+        etKG = findViewById(R.id.tbumicukg);
+        etAltura = findViewById(R.id.etmicAlt);
+        cIMC = findViewById(R.id.etIM);
 
+        dbHelper = new DatabaseHelper(this);
+        database = dbHelper.getWritableDatabase();
+
+        // Cargar datos del usuario al iniciar la actividad
+        cargarDatosUsuario();
     }
-    public void CrearMiCuerpo(View view) {
-            // Obtener los valores ingresados por el usuario
-            String kilos = etKG.getText().toString().trim();
-            String altura = etAltura.getText().toString().trim();
-            String correo = Sesion.getInstancia().getNombreUsuario();
 
+    private void cargarDatosUsuario() {
+        String correo = Sesion.getInstancia().getNombreUsuario();
 
-            if(etKG.getText().toString()== "" || etAltura.getText().toString()== "" ){
-                Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+        Cursor cursor = database.query(DatabaseHelper.TABLE_CUERPO, null,
+                DatabaseHelper.COLUMN_CORREO + "=?", new String[]{correo},
+                null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            // Usuario encontrado en la base de datos
+            int kilosColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_KILOS);
+            int alturaColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_ALTURA);
+            int imcColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_IMC);
+
+            if (kilosColumnIndex != -1 && alturaColumnIndex != -1 && imcColumnIndex != -1) {
+                // The columns exist, retrieve the data
+                String kilos = cursor.getString(kilosColumnIndex);
+                String altura = cursor.getString(alturaColumnIndex);
+                String imc = cursor.getString(imcColumnIndex);
+
+                // Llenar los campos de la interfaz con los datos cargados
+                etKG.setText(kilos);
+                etAltura.setText(altura);
+                cIMC.setText(imc);
             } else {
-                // Verificar si el correo electrónico ya está registrado
-                verificarCuerpoExistente(kilos, altura, correo);
+                // Handle the case where the columns do not exist
+                Toast.makeText(this, "Error al cargar datos del usuario", Toast.LENGTH_SHORT).show();
             }
 
+            cursor.close();
+        }
+    }
 
+    public void CrearMiCuerpo(View view) {
+        // Obtener los valores ingresados por el usuario
+        String kilos = etKG.getText().toString().trim();
+        String altura = etAltura.getText().toString().trim();
+        String correo = Sesion.getInstancia().getNombreUsuario();
+
+        if (TextUtils.isEmpty(kilos) || TextUtils.isEmpty(altura)) {
+            Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+        } else {
+            // Verificar si el correo electrónico ya está registrado
+            verificarCuerpoExistente(kilos, altura, correo);
+        }
     }
 
     private void verificarCuerpoExistente(String kilos, String altura, String correo) {
-        if(cbMedicion.isChecked()){
+        // Consultar si el usuario ya existe
+        Cursor cursor = database.query(DatabaseHelper.TABLE_CUERPO, null,
+                DatabaseHelper.COLUMN_CORREO + "=?", new String[]{correo},
+                null, null, null);
 
-            DatabaseReference cuerposRef = FirebaseDatabase.getInstance().getReference().child("cuerpos");
-        double imc = calcularIMC(kilos, altura);
-        crearCuerpo(cuerposRef, correo, kilos, altura, imc);
-        }else {
-            //Actualizar Campos
-            DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("cuerpos");
-            usersRef.orderByChild("correo").equalTo(correo).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                            // Obtener la referencia al nodo del usuario
-                            DatabaseReference usuarioRef = usersRef.child(userSnapshot.getKey());
+        if (cursor != null && cursor.moveToFirst()) {
+            // Usuario encontrado en la base de datos, actualizar los valores
+            ContentValues values = new ContentValues();
+            values.put(DatabaseHelper.COLUMN_ALTURA, altura);
+            values.put(DatabaseHelper.COLUMN_KILOS, kilos);
+            values.put(DatabaseHelper.COLUMN_IMC, calcularIMC(kilos, altura));
 
-                                // Actualizar los valores en la base de datos
-                                usuarioRef.child("altura").setValue(altura);
-                                usuarioRef.child("kilos").setValue(kilos);
-                                usuarioRef.child("imc").setValue(calcularIMC(kilos, altura));
+            database.update(DatabaseHelper.TABLE_CUERPO, values,
+                    DatabaseHelper.COLUMN_CORREO + "=?", new String[]{correo});
 
-                            }
-
-
-                    } else {
-                        // Usuario no encontrado en la base de datos
-                        Toast.makeText(MiCuerpoActivity.this, "Usuario no existente", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    // Manejar cualquier error de base de datos aquí, si es necesario
-                    Toast.makeText(MiCuerpoActivity.this, "Error en la consulta de cuerpos", Toast.LENGTH_SHORT).show();
-                }
-            });
+            cursor.close();
+        } else {
+            // Usuario no encontrado, crear un nuevo registro
+            double imc = calcularIMC(kilos, altura);
+            crearCuerpo(correo, kilos, altura, imc);
         }
+
         double imcf = calcularIMC(kilos, altura);
         String imcfString = String.valueOf(imcf);
         cIMC.setText(imcfString);
-
     }
 
-    //Crear cuerpos en la bd
-    private void crearCuerpo(DatabaseReference cuerposRef, String correo, String kilos, String altura, double imc) {
-        // Crear un nuevo objeto Cuerpo
-        Cuerpo nuevoCuerpo = new Cuerpo(correo, kilos, altura, imc);
 
-        // Obtener la clave única para el nuevo cuerpo
-        String cuerpoId = cuerposRef.push().getKey();
 
-        // Guardar el nuevo cuerpo en la base de datos bajo la tabla "cuerpos"
-        cuerposRef.child(cuerpoId).setValue(nuevoCuerpo);
+    // Crear cuerpo en la base de datos SQLite
+    private void crearCuerpo(String correo, String kilos, String altura, double imc) {
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COLUMN_CORREO, correo);
+        values.put(DatabaseHelper.COLUMN_KILOS, kilos);
+        values.put(DatabaseHelper.COLUMN_ALTURA, altura);
+        values.put(DatabaseHelper.COLUMN_IMC, imc);
 
-        // Informar al usuario que los datos han sido añadidos exitosamente
-        Toast.makeText(MiCuerpoActivity.this, "Datos añadidos exitosamente", Toast.LENGTH_SHORT).show();
+        long newRowId = database.insert(DatabaseHelper.TABLE_CUERPO, null, values);
+
+        if (newRowId != -1) {
+            // Informar al usuario que los datos han sido añadidos exitosamente
+            Toast.makeText(MiCuerpoActivity.this, "Datos añadidos exitosamente", Toast.LENGTH_SHORT).show();
+        } else {
+            // Manejar el caso en que la inserción falla
+            Toast.makeText(MiCuerpoActivity.this, "Error al añadir datos", Toast.LENGTH_SHORT).show();
+        }
     }
+
+
 
 
 
