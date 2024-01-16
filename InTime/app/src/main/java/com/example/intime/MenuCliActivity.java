@@ -33,4 +33,10 @@ public class MenuCliActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // Opcional, dependiendo de tu flujo de la aplicación
     }
+    public void GimnasioCliClick(View view) {
+        // Acción a realizar al hacer clic en el botón "Salir"
+        Intent intent = new Intent(MenuCliActivity.this, GimnasioClientesActivity.class);
+        startActivity(intent);
+        finish(); // Opcional, dependiendo de tu flujo de la aplicación
+    }
 }
