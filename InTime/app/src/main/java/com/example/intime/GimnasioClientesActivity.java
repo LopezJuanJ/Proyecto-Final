@@ -1,5 +1,7 @@
 package com.example.intime;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,5 +61,19 @@ public class GimnasioClientesActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+    public void VolverAlMenuGC(View view) {
+        if(Sesion.getInstancia().getAdmin()==0){
+            Intent intent = new Intent(GimnasioClientesActivity.this, MenuCliActivity.class);
+            // Acción a realizar al hacer clic en el botón "Salir"
+            startActivity(intent);
+            finish(); // Opcional, dependiendo de tu flujo de la aplicación
+        }else{
+            Intent intent = new Intent(GimnasioClientesActivity.this, MenuAdminActivity.class);
+            // Acción a realizar al hacer clic en el botón "Salir"
+            startActivity(intent);
+            finish(); // Opcional, dependiendo de tu flujo de la aplicación
+        }
+
     }
 }
