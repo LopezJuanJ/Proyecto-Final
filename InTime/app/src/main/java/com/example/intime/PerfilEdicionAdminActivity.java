@@ -24,22 +24,35 @@ public class PerfilEdicionAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-        nombre=findViewById(R.id.tbusunombre);
-        apellidos= findViewById(R.id.etusuApellidos);
-        codGym=findViewById(R.id.etusuCodGym);
-        correoElect=findViewById(R.id.tbusuelectronico);
-        pass=findViewById(R.id.tbusupass);
-        guardar=findViewById(R.id.btnguardarPerfil);
 
-        asignarValores();
+        // Obtener datos del Intent
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            String nombreUsuario = bundle.getString("nombre");
+            String apellidosUsuario = bundle.getString("apellidos");
+            String codGymUsuario = bundle.getString("codGym");
+            String correoElectronicoUsuario = bundle.getString("correoElectronico");
+
+            // Asignar valores a las vistas
+            nombre = findViewById(R.id.tbusunombre);
+            apellidos = findViewById(R.id.etusuApellidos);
+            codGym = findViewById(R.id.etusuCodGym);
+            correoElect = findViewById(R.id.tbusuelectronico);
+            pass = findViewById(R.id.tbusupass);
+            guardar = findViewById(R.id.btnguardarPerfil);
+
+            // Asignar valores a las vistas con los datos del Bundle
+            nombre.setText(nombreUsuario);
+            apellidos.setText(apellidosUsuario);
+            codGym.setText(codGymUsuario);
+            correoElect.setText(correoElectronicoUsuario);
+        } else {
+            // Manejar el caso en el que no se proporcionaron datos en el Bundle
+            // Puedes mostrar un mensaje de error o tomar alguna otra acción
+            Toast.makeText(this, "Error: No se recibieron datos del usuario", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void asignarValores(){
-        nombre.setText(Sesion.getInstancia().getNombre());
-        apellidos.setText(Sesion.getInstancia().getApellidos());
-        codGym.setText(Sesion.getInstancia().getCodGym());
-        correoElect.setText(Sesion.getInstancia().getNombreUsuario());
-    }
     public void VolverAlMenu(View view) {
         if(Sesion.getInstancia().getAdmin()==0){
             Intent intent = new Intent(PerfilEdicionAdminActivity.this, MenuCliActivity.class);
@@ -62,12 +75,12 @@ public class PerfilEdicionAdminActivity extends AppCompatActivity {
     }
 
     public void cargarValores(){
+        Bundle bundle = getIntent().getExtras();
         String nuevoNombre = nombre.getText().toString();
         String nuevosApellidos = apellidos.getText().toString();
-        String nuevoCodGym = codGym.getText().toString();
         String nuevoCorreo = correoElect.getText().toString();
         String nuevaPass=pass.getText().toString();
-        String emailUser = Sesion.getInstancia().getNombreUsuario();
+        String emailUser = bundle.getString("correoElectronico");
 
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
         usersRef.orderByChild("correoElectronico").equalTo(emailUser).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -84,6 +97,8 @@ public class PerfilEdicionAdminActivity extends AppCompatActivity {
                             usuarioRef.child("nombre").setValue(nuevoNombre);
                             usuarioRef.child("apellidos").setValue(nuevosApellidos);
                             usuarioRef.child("correoElectronico").setValue(nuevoCorreo);
+                            showToast("Campos actualizados");
+
                         }else{
                             // Actualizar los valores en la base de datos
                             usuarioRef.child("nombre").setValue(nuevoNombre);
@@ -91,10 +106,8 @@ public class PerfilEdicionAdminActivity extends AppCompatActivity {
                             usuarioRef.child("correoElectronico").setValue(nuevoCorreo);
                             usuarioRef.child("contrasena").setValue(nuevaPass);
                             pass.setText("");
+                            showToast("Campos actualizados");
 
-                            Sesion.getInstancia().setApellidos(nuevosApellidos);
-                            Sesion.getInstancia().setNombreUsuario(nuevoCorreo);
-                            Sesion.getInstancia().setNombre(nuevoNombre);
                         }
                     }
 

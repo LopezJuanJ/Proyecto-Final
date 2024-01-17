@@ -74,7 +74,7 @@ public class UsuariosActivity extends AppCompatActivity {
                             String nombre = snapshot.child("nombre").getValue(String.class);
                             String apellidos = snapshot.child("apellidos").getValue(String.class);
                             String correo = snapshot.child("correoElectronico").getValue(String.class);
-                            usuariosList.add(nombre + " " + apellidos );
+                            usuariosList.add(nombre + " " + apellidos + "/"+ correo);
                         }
                         adapter.notifyDataSetChanged();
                     }
@@ -106,18 +106,89 @@ public class UsuariosActivity extends AppCompatActivity {
                 });
         builder.create().show();
     }
+    private void editarUsuario(final int position) {
+        // Obtener el correo del usuario seleccionado
+        final String correoUsuario = obtenerCorreoUsuario(position);
 
-    // Método para editar el usuario en la posición especificada
-    private void editarUsuario(int position) {
-        // Aquí puedes implementar la lógica para editar el usuario en la posición 'position'
-        // Por ejemplo, puedes abrir una nueva actividad para editar los detalles del usuario
-        Toast.makeText(this, "Editar usuario en posición " + position, Toast.LENGTH_SHORT).show();
+        // Realizar consulta a la base de datos para obtener los datos del usuario por su correo
+        mDatabase.orderByChild("correoElectronico").equalTo(correoUsuario)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            // Obtener los datos del usuario
+                            String nombre = snapshot.child("nombre").getValue(String.class);
+                            String apellidos = snapshot.child("apellidos").getValue(String.class);
+                            String correoElectronico = snapshot.child("correoElectronico").getValue(String.class);
+                            String codGym = snapshot.child("codGym").getValue(String.class);
+
+                            // Crear un Bundle para pasar los datos a la actividad PerfilEdicionAdminActivity
+                            Bundle bundle = new Bundle();
+                            bundle.putString("nombre", nombre);
+                            bundle.putString("apellidos", apellidos);
+                            bundle.putString("correoElectronico", correoElectronico);
+                            bundle.putString("codGym", codGym);
+
+                            // Crear la intención para abrir la actividad PerfilEdicionAdminActivity y pasar el Bundle
+                            Intent intent = new Intent(UsuariosActivity.this, PerfilEdicionAdminActivity.class);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Toast.makeText(UsuariosActivity.this, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
-    // Método para eliminar el usuario en la posición especificada
+    // Método para obtener el correo del usuario en la posición especificada
+    private String obtenerCorreoUsuario(int position) {
+        // Obtener el elemento en la posición 'position' del adaptador
+        String usuario = usuariosList.get(position);
+
+        // Dividir el string usando "/" como separador para obtener el correo
+        String[] partes = usuario.split("/");
+
+        // El correo electrónico estará en la segunda parte del array (índice 1)
+        return partes[1];
+    }
+
+
     private void eliminarUsuario(int position) {
-        // Aquí puedes implementar la lógica para eliminar el usuario en la posición 'position'
-        // Por ejemplo, puedes mostrar un cuadro de diálogo de confirmación antes de eliminar
-        Toast.makeText(this, "Eliminar usuario en posición " + position, Toast.LENGTH_SHORT).show();
+        // Obtener el correo del usuario en la posición especificada
+        final String correoUsuario = obtenerCorreoUsuario(position);
+
+        // Realizar consulta a la base de datos para obtener el usuario por su correo
+        mDatabase.orderByChild("correoElectronico").equalTo(correoUsuario)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            // Eliminar el usuario de la base de datos
+                            snapshot.getRef().removeValue()
+                                    .addOnSuccessListener(aVoid -> {
+                                        // Eliminación exitosa, actualizar la lista de usuarios
+                                        obtenerUsuarios();
+                                        Toast.makeText(UsuariosActivity.this, "Usuario eliminado exitosamente", Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        // Error al eliminar
+                                        Toast.makeText(UsuariosActivity.this, "Error al eliminar usuario", Toast.LENGTH_SHORT).show();
+                                    });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Toast.makeText(UsuariosActivity.this, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
+    public void irACrearCuentaClick(View v) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
 }
