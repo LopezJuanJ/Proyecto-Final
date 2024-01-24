@@ -27,6 +27,12 @@ public class MenuCliActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // Opcional, dependiendo de tu flujo de la aplicación
     }
+    public void ReservarClick(View view) {
+        // Acción a realizar al hacer clic en el botón "Salir"
+        Intent intent = new Intent(MenuCliActivity.this, ReservarActivity.class);
+        startActivity(intent);
+        finish(); // Opcional, dependiendo de tu flujo de la aplicación
+    }
     public void PerfilClick(View view) {
         // Acción a realizar al hacer clic en el botón "Salir"
         Intent intent = new Intent(MenuCliActivity.this, PerfilActivity.class);
