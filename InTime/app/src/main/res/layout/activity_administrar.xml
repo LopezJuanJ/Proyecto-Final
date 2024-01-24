@@ -1,10 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdministrarActivity">
+    android:orientation="vertical"
+    android:background="#000000">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:background="#000000">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="24dp"
+        android:onClick="VolverAlMenuA"
+        android:src="@drawable/arrowleft" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="23dp"
+        android:layout_toEndOf="@id/btnBack"
+        android:layout_toRightOf="@id/btnBack"
+        android:fontFamily="@font/urbanistbold"
+        android:text="Administrar"
+        android:textColor="#FFFFFF"
+        android:textSize="32dp"
+        android:textStyle="bold" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_marginTop="16dp"
+      android:gravity="center">
+
+    <!-- EditText 1 - Hora -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Hora"
+          android:textColor="#FFFFFF" />
+
+      <EditText
+          android:id="@+id/etHora1"
+          android:layout_width="70dp"
+          android:layout_height="40dp"
+          android:background="@drawable/custom_edittext_background"
+          android:inputType="number"
+          android:paddingStart="8dp" />
+
+    </LinearLayout>
+
+    <!-- Agregar ":" entre EditText 1 y EditText 2 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/urbanistbold"
+        android:textSize="24dp"
+        android:text=":"
+        android:textColor="#FFFFFF"
+        />
+
+    <!-- EditText 2 - Minuto -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Min"
+          android:textColor="#FFFFFF" />
+
+      <EditText
+          android:id="@+id/etMinuto1"
+          android:layout_width="70dp"
+          android:layout_height="40dp"
+          android:background="@drawable/custom_edittext_background"
+          android:inputType="number"
+          android:paddingStart="8dp" />
+
+    </LinearLayout>
+
+    <!-- Agregar "-" entre EditText 2 y EditText 3 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/urbanistbold"
+        android:textSize="24dp"
+        android:text="-"
+        android:textColor="#FFFFFF" />
+
+    <!-- EditText 3 - Hora -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Hora"
+          android:textColor="#FFFFFF" />
+
+      <EditText
+          android:id="@+id/etHora2"
+          android:layout_width="70dp"
+          android:layout_height="40dp"
+          android:background="@drawable/custom_edittext_background"
+          android:inputType="number"
+          android:paddingStart="8dp" />
+
+    </LinearLayout>
+
+    <!-- Agregar ":" entre EditText 3 y EditText 4 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/urbanistbold"
+        android:textSize="24dp"
+        android:text=":"
+        android:textColor="#FFFFFF" />
+
+    <!-- EditText 4 - Minuto -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Min"
+          android:textColor="#FFFFFF" />
+
+      <EditText
+          android:id="@+id/etMinuto2"
+          android:layout_width="70dp"
+          android:layout_height="40dp"
+          android:background="@drawable/custom_edittext_background"
+          android:inputType="number"
+          android:paddingStart="8dp" />
+
+    </LinearLayout>
+
+  </LinearLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      android:layout_marginTop="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Número de Personas:"
+        android:fontFamily="@font/urbanistbold"
+        android:textSize="24dp"
+        android:layout_marginLeft="35dp"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/etNumPersonas"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_edittext_background"
+        android:gravity="center_vertical|center_horizontal"
+        android:inputType="number"
+        android:layout_marginStart="8dp" />
+
+  </LinearLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="center">
+
+    <!-- Primer botón -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btncomprobar"
+        android:layout_width="243dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="#59CE73"
+        android:fontFamily="@font/urbanistbold"
+        android:gravity="center"
+        android:onClick="AddClase"
+        android:text="Añadir"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="22dp" />
+  </LinearLayout>
+    <TableLayout
+        android:id="@+id/miTableRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+    <!-- Table header row -->
+    <TableRow >
+      <TextView
+          android:gravity="center"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="2"
+          android:text="Horario"
+          android:fontFamily="@font/urbanistbold"
+          android:textColor="#FFFFFF"/>
+      <TextView
+          android:layout_width="0dp"
+          android:gravity="center"
+          android:layout_height="wrap_content"
+          android:layout_weight="2"
+          android:text="Asistentes"
+          android:fontFamily="@font/urbanistbold"
+          android:textColor="#FFFFFF"/>
+      <TextView
+          android:fontFamily="@font/urbanistbold"
+          android:gravity="center"
+
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="2"
+          android:text="Máximo"
+          android:textColor="#FFFFFF"/>
+    </TableRow>
+
+
+
+  </TableLayout>
+
+
+</LinearLayout>

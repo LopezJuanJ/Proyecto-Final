@@ -38,4 +38,10 @@ public class MenuAdminActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // Opcional, dependiendo de tu flujo de la aplicación
     }
+    public void AdministrarClick(View view) {
+        // Acción a realizar al hacer clic en el botón "Salir"
+        Intent intent = new Intent(MenuAdminActivity.this, AdministrarActivity.class);
+        startActivity(intent);
+        finish(); // Opcional, dependiendo de tu flujo de la aplicación
+    }
 }

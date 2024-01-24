@@ -44,14 +44,15 @@
             android:layout_marginBottom="27dp"
             android:backgroundTint="#4c4c4c"
             android:fontFamily="@font/urbanistbold"
+            android:onClick="AdministrarClick"
+            android:paddingTop="20dp"
             android:text="Administrar"
             android:textColor="@color/white"
             android:textSize="19dp"
             app:cornerRadius="10dp"
             app:icon="@drawable/build"
-            app:iconSize="70dp"
             app:iconGravity="top"
-            android:paddingTop="20dp"/>
+            app:iconSize="70dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Chat"
