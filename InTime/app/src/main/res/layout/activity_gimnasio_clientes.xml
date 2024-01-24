@@ -32,7 +32,7 @@
             android:layout_toRightOf="@id/btnBack"
             android:fontFamily="@font/urbanistbold"
             android:layout_marginLeft="70dp"
-            android:text="Gimnasio"
+            android:text="@string/gimnasio"
             android:textColor="#FFFFFF"
             android:textSize="32dp"
             android:textStyle="bold" />
@@ -57,7 +57,7 @@
         android:layout_toRightOf="@id/btnBack"
         android:fontFamily="@font/urbanistbold"
         android:layout_gravity="center"
-        android:text="Contacto"
+        android:text="@string/contacto"
         android:textColor="#FFFFFF"
         android:textSize="32dp"
         android:textStyle="bold" />

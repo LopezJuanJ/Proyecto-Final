@@ -35,7 +35,7 @@
             android:layout_toEndOf="@id/btnBack"
             android:layout_toRightOf="@id/btnBack"
             android:fontFamily="@font/urbanistbold"
-            android:text="Usuarios"
+            android:text="@string/usuarios"
             android:textColor="#FFFFFF"
             android:textSize="32dp"
             android:textStyle="bold" />
@@ -65,7 +65,7 @@
         android:backgroundTint="#59CE73"
         android:fontFamily="@font/urbanistbold"
         android:onClick="irACrearCuentaClick"
-        android:text="Añadir Usuario"
+        android:text="@string/anadirUsuarios"
         android:textAlignment="center"
         android:textColor="@color/black"
 

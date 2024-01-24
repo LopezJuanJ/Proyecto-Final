@@ -70,7 +70,9 @@ public class AdministrarActivity extends AppCompatActivity {
 
                     // Configurar el texto para cada TextView
                     tvHorario.setText(clase.getHorario());
-                    tvAsistentes.setText(clase.getAsistentes());
+                    String asistentesText = clase.getAsistentes();
+                    int asistentesCount = contarPalabras(asistentesText);
+                    tvAsistentes.setText(String.valueOf(asistentesCount));
                     tvMaximo.setText(clase.getMaxPersonas());
 
                     // Aplicar la fuente @font/urbanistbold a cada TextView
@@ -89,7 +91,15 @@ public class AdministrarActivity extends AppCompatActivity {
                     tvHorario.setGravity(Gravity.CENTER);
                     tvAsistentes.setGravity(Gravity.CENTER);
                     tvMaximo.setGravity(Gravity.CENTER);
+                    // Configurar el texto de color blanco para cada TextView
+                    tvHorario.setTextColor(getResources().getColor(android.R.color.white));
+                    tvAsistentes.setTextColor(getResources().getColor(android.R.color.white));
+                    tvMaximo.setTextColor(getResources().getColor(android.R.color.white));
 
+                    // Aplicar la fuente @font/urbanistbold a cada TextView
+                    tvHorario.setTypeface(ResourcesCompat.getFont(AdministrarActivity.this, R.font.urbanistbold));
+                    tvAsistentes.setTypeface(ResourcesCompat.getFont(AdministrarActivity.this, R.font.urbanistbold));
+                    tvMaximo.setTypeface(ResourcesCompat.getFont(AdministrarActivity.this, R.font.urbanistbold));
                     // Aplicar LayoutParams a cada TextView
                     tvHorario.setLayoutParams(layoutParams);
                     tvAsistentes.setLayoutParams(layoutParams);
@@ -112,6 +122,18 @@ public class AdministrarActivity extends AppCompatActivity {
         });
     }
 
+    public static int contarPalabras(String cadena) {
+        // Verificar si la cadena es nula o vacía
+        if (cadena == null || cadena.isEmpty()) {
+            return 0;
+        }
+
+        // Dividir la cadena utilizando la coma como separador
+        String[] palabras = cadena.split(",");
+
+        // Obtener el número de palabras resultantes
+        return palabras.length;
+    }
 
     public void AddClase(View v) {
         // Obtener los valores de los EditText

@@ -34,7 +34,7 @@
             android:layout_toEndOf="@id/btnBack"
             android:layout_toRightOf="@id/btnBack"
             android:fontFamily="@font/urbanistbold"
-            android:text="Perfil"
+            android:text="@string/perfil"
             android:textColor="#FFFFFF"
             android:textSize="32dp"
             android:textStyle="bold" />
@@ -70,7 +70,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre"
+        android:text="@string/nombre"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -96,7 +96,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apellidos"
+        android:text="@string/apellidos"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -121,7 +121,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cod Gym"
+        android:text="@string/codigoGym"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -145,7 +145,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correo Electronico"
+        android:text="@string/correoElectronico"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -170,7 +170,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contraseña"
+        android:text="@string/contrasena"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -203,7 +203,7 @@
         android:fontFamily="@font/urbanistbold"
         android:gravity="center"
         android:onClick="actualizarDatos"
-        android:text="Guardar"
+        android:text="@string/guardar"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="22dp" />

@@ -48,7 +48,7 @@
                 android:layout_marginTop="21dp"
                 android:background="@drawable/custom_edittext_background"
                 android:fontFamily="@font/montserratlight"
-                android:hint="Nombre de Usuario"
+                android:hint="@string/nombreDeUsuario"
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -63,7 +63,7 @@
                 android:layout_marginTop="48dp"
                 android:background="@drawable/custom_edittext_background"
                 android:fontFamily="@font/montserratlight"
-                android:hint="Contraseña"
+                android:hint="@string/contrasena"
                 android:inputType="textPassword"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -80,7 +80,7 @@
                 android:fontFamily="@font/urbanistbold"
                 android:gravity="center"
                 android:onClick="checkLogin"
-                android:text="Comprobar"
+                android:text="@string/comprobar"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="22dp" />
@@ -91,7 +91,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/urbanistbold"
-                android:text="¿Olvidaste la contraseña?"
+                android:text="@string/olvidarPregunta"
                 android:textColor="#FFFFFF"
                 android:textSize="13dp" />
 
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/urbanistbold"
-                    android:text="No tienes cuenta. "
+                    android:text="@string/sinCuenta"
                     android:textColor="@color/white"
                     android:textSize="13dp" />
 
@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/urbanistbold"
                     android:onClick="linkCrearCuentaClick"
-                    android:text="Créala"
+                    android:text="@string/creala"
                     android:textColor="#59CE73"
                     android:textSize="13dp" />
             </LinearLayout>

@@ -34,7 +34,7 @@
         android:layout_toEndOf="@id/btnBack"
         android:layout_toRightOf="@id/btnBack"
         android:fontFamily="@font/urbanistbold"
-        android:text="Administrar"
+        android:text="@string/Administrar"
         android:textColor="#FFFFFF"
         android:textSize="32dp"
         android:textStyle="bold" />
@@ -59,7 +59,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Hora"
+          android:text="@string/Hora"
           android:textColor="#FFFFFF" />
 
       <EditText
@@ -93,7 +93,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Min"
+          android:text="@string/Min"
           android:textColor="#FFFFFF" />
 
       <EditText
@@ -126,7 +126,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Hora"
+          android:text="@string/Hora"
           android:textColor="#FFFFFF" />
 
       <EditText
@@ -159,7 +159,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Min"
+          android:text="@string/Min"
           android:textColor="#FFFFFF" />
 
       <EditText
@@ -183,7 +183,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Número de Personas:"
+        android:text="@string/numPersDuda"
         android:fontFamily="@font/urbanistbold"
         android:textSize="24dp"
         android:layout_marginLeft="35dp"
@@ -216,7 +216,7 @@
         android:fontFamily="@font/urbanistbold"
         android:gravity="center"
         android:onClick="AddClase"
-        android:text="Añadir"
+        android:text="@string/Anadir"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="22dp" />
@@ -234,25 +234,27 @@
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_weight="2"
-          android:text="Horario"
+          android:textSize="20dp"
+          android:text="@string/horaioTabla"
           android:fontFamily="@font/urbanistbold"
           android:textColor="#FFFFFF"/>
       <TextView
           android:layout_width="0dp"
           android:gravity="center"
+          android:textSize="20dp"
           android:layout_height="wrap_content"
           android:layout_weight="2"
-          android:text="Asistentes"
+          android:text="@string/asistentesTabla"
           android:fontFamily="@font/urbanistbold"
           android:textColor="#FFFFFF"/>
       <TextView
           android:fontFamily="@font/urbanistbold"
           android:gravity="center"
-
+          android:textSize="20dp"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_weight="2"
-          android:text="Máximo"
+          android:text="@string/maximoTabla"
           android:textColor="#FFFFFF"/>
     </TableRow>
 

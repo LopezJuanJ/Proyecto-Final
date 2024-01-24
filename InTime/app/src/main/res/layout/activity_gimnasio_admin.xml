@@ -38,7 +38,7 @@
             android:layout_toEndOf="@id/btnBack"
             android:layout_toRightOf="@id/btnBack"
             android:fontFamily="@font/urbanistbold"
-            android:text="Gimnasio"
+            android:text="@string/gimnasio"
             android:textColor="#FFFFFF"
             android:textSize="32dp"
             android:textStyle="bold" />
@@ -66,7 +66,7 @@
         android:backgroundTint="#59CE73"
         android:fontFamily="@font/urbanistbold"
         android:onClick="ComprobarCuentaClick"
-        android:text="Editar"
+        android:text="@string/editar"
         android:textAlignment="center"
         android:gravity="center"
         android:textColor="@color/black"
@@ -76,7 +76,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre"
+        android:text="@string/nombre"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -102,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Direccion"
+        android:text="@string/direccion"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -127,7 +127,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Telefono"
+        android:text="@string/telefono"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -152,7 +152,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correo Electronico"
+        android:text="@string/correoElectronico"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -177,7 +177,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Código Gym"
+        android:text="@string/codigoGym"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:layout_marginLeft="47dp"
@@ -209,7 +209,7 @@
         android:fontFamily="@font/urbanistbold"
         android:gravity="center"
         android:onClick="guardarGimnasio"
-        android:text="Guardar"
+        android:text="@string/guardar"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="22dp" />
