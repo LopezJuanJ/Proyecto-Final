@@ -74,7 +74,6 @@
         android:layout_marginTop="66dp"
         />
 
-
     <TextView
         android:id="@+id/direccionGym"
         android:layout_width="wrap_content"
@@ -85,6 +84,8 @@
         android:fontFamily="@font/urbanistbold"
         android:layout_marginTop="11dp"
         />
+
+
     <TextView
         android:id="@+id/telefonoGym"
         android:layout_width="wrap_content"
@@ -95,6 +96,7 @@
         android:fontFamily="@font/urbanistbold"
         android:layout_marginTop="11dp"
         />
+
     <TextView
         android:id="@+id/correoElectrGym"
         android:layout_width="wrap_content"
@@ -105,7 +107,6 @@
         android:fontFamily="@font/urbanistbold"
         android:layout_marginTop="11dp"
         />
-
 
 
 </LinearLayout>

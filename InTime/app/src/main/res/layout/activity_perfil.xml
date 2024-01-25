@@ -52,21 +52,6 @@
         />
 
 
-    <!-- Cambiar Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCrearCuenta"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#59CE73"
-        android:fontFamily="@font/urbanistbold"
-        android:onClick="ComprobarCuentaClick"
-        android:text="@string/editar"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="22dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

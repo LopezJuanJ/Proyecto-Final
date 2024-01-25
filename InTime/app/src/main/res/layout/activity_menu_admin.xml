@@ -38,7 +38,7 @@
         <!-- Buttons in the first column -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Administrar"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginRight="14.5dp"
             android:layout_marginBottom="27dp"
@@ -48,7 +48,7 @@
             android:paddingTop="20dp"
             android:text="@string/Administrar"
             android:textColor="@color/white"
-            android:textSize="19dp"
+            android:textSize="18dp"
             app:cornerRadius="10dp"
             app:icon="@drawable/build"
             app:iconGravity="top"
